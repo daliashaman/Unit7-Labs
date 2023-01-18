@@ -20,7 +20,7 @@ shopsRouter.get("/:id", async (req:Request, res:Response) : Promise<Response> =>
     let findItemById = shops.find((x) => x.id === Number(req.params.id));
 
     if(findItemById === undefined){
-        return res.status(404).send(`"error": "Shop not found: "`);
+        return res.status(404).send(`"error": "Shop not found: ${req.params.id}"`);
     }else{
         return res.status(200).json(findItemById);
     }
